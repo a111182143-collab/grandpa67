@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Github, Linkedin, Mail, Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import avatarImg from '../IMG_5600.jpg';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +15,23 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="font-mono text-xl font-bold text-brand-blue"
-        >
-          &lt;PORTFOLIO /&gt;
-        </motion.div>
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-4">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-14 h-14 md:w-[72px] md:h-[72px] rounded-full overflow-hidden border-2 border-brand-blue shadow-sm bg-gray-100"
+          >
+            <img src={avatarImg} alt="Avatar" className="w-full h-full object-cover" />
+          </motion.div>
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="font-mono text-xl font-bold text-brand-blue hidden sm:block mt-2"
+          >
+            &lt;PORTFOLIO /&gt;
+          </motion.div>
+        </div>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
